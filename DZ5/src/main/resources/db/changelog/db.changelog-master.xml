@@ -1,0 +1,328 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+http://www.liquibase.org/xml/ns/dbchangelog
+http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="1668524234269-1" author="Pezhi (generated)">
+        <createTable tableName="author">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_author" />
+            </column>
+            <column name="photo" type="VARCHAR(255)" />
+            <column name="slug" type="VARCHAR(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="description" type="VARCHAR(255)" />
+        </createTable>
+    </changeSet>
+    <changeSet id="1668524234269-2" author="Pezhi (generated)">
+        <createTable tableName="balance_transaction">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_balance_transaction" />
+            </column>
+            <column name="user_id" type="INT">
+                <constraints nullable="false" />
+            </column>
+            <column name="time" type="TIMESTAMP">
+                <constraints nullable="false" />
+            </column>
+            <column defaultValueNumeric="0" name="value" type="INT">
+                <constraints nullable="false" />
+            </column>
+            <column name="book_id" type="INT">
+                <constraints nullable="false" />
+            </column>
+            <column name="description" type="TEXT">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1668524234269-3" author="Pezhi (generated)">
+        <createTable tableName="book">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_book" />
+            </column>
+            <column name="pub_date" type="DATETIME">
+                <constraints nullable="false" />
+            </column>
+            <column name="is_bestseller" type="SMALLINT">
+                <constraints nullable="false" />
+            </column>
+            <column name="slug" type="VARCHAR(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="title" type="VARCHAR(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="image" type="VARCHAR(255)" />
+            <column name="description" type="VARCHAR(255)" />
+            <column name="price" type="VARCHAR(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="discount" type="SMALLINT">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1668524234269-4" author="Pezhi (generated)">
+        <createTable tableName="book2author">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_book2author" />
+            </column>
+            <column name="book_id" type="INT">
+                <constraints nullable="false" />
+            </column>
+            <column name="author_id" type="INT">
+                <constraints nullable="false" />
+            </column>
+            <column defaultValueNumeric="0" name="sort_index" type="INT">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1668524234269-5" author="Pezhi (generated)">
+        <createTable tableName="book2genre">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_book2genre" />
+            </column>
+            <column name="book_id" type="INT">
+                <constraints nullable="false" />
+            </column>
+            <column name="genre_id" type="INT">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1668524234269-6" author="Pezhi (generated)">
+        <createTable tableName="book2user">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_book2user" />
+            </column>
+            <column name="time" type="TIMESTAMP">
+                <constraints nullable="false" />
+            </column>
+            <column name="type_id" type="INT">
+                <constraints nullable="false" />
+            </column>
+            <column name="book_id" type="INT">
+                <constraints nullable="false" />
+            </column>
+            <column name="user_id" type="INT">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1668524234269-7" author="Pezhi (generated)">
+        <createTable tableName="book2user_type">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_book2user_type" />
+            </column>
+            <column name="code" type="VARCHAR(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1668524234269-8" author="Pezhi (generated)">
+        <createTable tableName="book_file">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_book_file" />
+            </column>
+            <column name="hash" type="VARCHAR(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="type_id" type="INT">
+                <constraints nullable="false" />
+            </column>
+            <column name="path" type="VARCHAR(255)">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1668524234269-9" author="Pezhi (generated)">
+        <createTable tableName="book_file_type">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_book_file_type" />
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="description" type="TEXT" />
+        </createTable>
+    </changeSet>
+    <changeSet id="1668524234269-10" author="Pezhi (generated)">
+        <createTable tableName="book_review">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_book_review" />
+            </column>
+            <column name="book_id" type="INT">
+                <constraints nullable="false" />
+            </column>
+            <column name="user_id" type="INT">
+                <constraints nullable="false" />
+            </column>
+            <column name="time" type="TIMESTAMP">
+                <constraints nullable="false" />
+            </column>
+            <column name="text" type="TEXT">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1668524234269-11" author="Pezhi (generated)">
+        <createTable tableName="book_review_like">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_book_review_like" />
+            </column>
+            <column name="review_id" type="INT">
+                <constraints nullable="false" />
+            </column>
+            <column name="user_id" type="INT">
+                <constraints nullable="false" />
+            </column>
+            <column name="time" type="TIMESTAMP">
+                <constraints nullable="false" />
+            </column>
+            <column name="value" type="SMALLINT">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1668524234269-12" author="Pezhi (generated)">
+        <createTable tableName="document">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_document" />
+            </column>
+            <column defaultValueNumeric="0" name="sort_index" type="INT">
+                <constraints nullable="false" />
+            </column>
+            <column name="slug" type="VARCHAR(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="title" type="VARCHAR(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="text" type="TEXT">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1668524234269-13" author="Pezhi (generated)">
+        <createTable tableName="faq">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_faq" />
+            </column>
+            <column defaultValueNumeric="0" name="sort_index" type="INT">
+                <constraints nullable="false" />
+            </column>
+            <column name="question" type="VARCHAR(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="answer" type="TEXT">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1668524234269-14" author="Pezhi (generated)">
+        <createTable tableName="file_download">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_file_download" />
+            </column>
+            <column name="user_id" type="INT">
+                <constraints nullable="false" />
+            </column>
+            <column name="book_id" type="INT">
+                <constraints nullable="false" />
+            </column>
+            <column defaultValueNumeric="1" name="count" type="INT">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1668524234269-15" author="Pezhi (generated)">
+        <createTable tableName="genre">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_genre" />
+            </column>
+            <column name="parent_id" type="INT">
+                <constraints nullable="false" />
+            </column>
+            <column name="slug" type="VARCHAR(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1668524234269-16" author="Pezhi (generated)">
+        <createTable tableName="message">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_message" />
+            </column>
+            <column name="time" type="TIMESTAMP">
+                <constraints nullable="false" />
+            </column>
+            <column name="user_id" type="INT">
+                <constraints nullable="false" />
+            </column>
+            <column name="email" type="VARCHAR(255)" />
+            <column name="name" type="VARCHAR(255)" />
+            <column name="subject" type="VARCHAR(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="text" type="TEXT">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1668524234269-17" author="Pezhi (generated)">
+        <createTable tableName="user_contact">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_user_contact" />
+            </column>
+            <column name="user_id" type="INT">
+                <constraints nullable="false" />
+            </column>
+            <column name="type" type="INT" />
+            <column name="approved" type="SMALLINT">
+                <constraints nullable="false" />
+            </column>
+            <column name="code" type="VARCHAR(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="code_trails" type="INT">
+                <constraints nullable="false" />
+            </column>
+            <column name="code_time" type="TIMESTAMP" />
+            <column name="contact" type="VARCHAR(255)">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1668524234269-18" author="Pezhi (generated)">
+        <createTable tableName="users">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_users" />
+            </column>
+            <column name="hash" type="VARCHAR(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="reg_time" type="TIMESTAMP">
+                <constraints nullable="false" />
+            </column>
+            <column name="balance" type="INT">
+                <constraints nullable="false" />
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
